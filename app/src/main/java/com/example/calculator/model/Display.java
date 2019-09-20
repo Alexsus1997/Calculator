@@ -1,8 +1,4 @@
 package com.example.calculator.model;
-
-import android.graphics.Path;
-
-import java.text.DecimalFormat;
 import java.math.*;
 
 public class Display
@@ -13,15 +9,11 @@ public class Display
     private String CurrentDisplay = "";
     private String CurrentOperation = "";
 
-    private static DecimalFormat Decimals;
-
     private Boolean PointFlag;
     private Boolean NegativeSignFlag;
     private Boolean OperatorFlag;
 
-
-
-
+    
     //Button Variable initialization
     static final String NINE   = "number_9";
     static final String EIGHT  = "number_8";
@@ -43,8 +35,9 @@ public class Display
     static final String ADDITION       = "plusSign";
     static final String SUBTRACTION    = "subtractSign";
 
-    static final String CLEAR  = "clearButton";
     static final String DELETE = "deleteButton";
+    
+    TextDisplay textDisplay = new TextDisplay();
 
 
     public Display()
@@ -55,8 +48,6 @@ public class Display
         PointFlag           = Boolean.FALSE;
         NegativeSignFlag    = Boolean.FALSE;
         OperatorFlag        = Boolean.FALSE;
-        Decimals = new DecimalFormat("#0.0");
-
     }
 
 
@@ -96,7 +87,7 @@ public class Display
 
     }
 
-    public String selectButton(String buttonTag)
+    public TextDisplay selectButton(String buttonTag)
     {
         switch (buttonTag)
         {
@@ -297,7 +288,10 @@ public class Display
                     break;
         }
 
-        return CurrentDisplay;
+        textDisplay.CurrentDisplay      = this.CurrentDisplay;
+        textDisplay.CurrentOperation    = this.CurrentOperation;
+
+        return textDisplay;
     }
     public void clear()
     {

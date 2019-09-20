@@ -53,11 +53,17 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         presenter.onButtonClicked(button_name);
     }
 
-    public void showDisplay(String textToBeDisplayed)
+    public void showDisplay(String textToBeDisplayed, String operatorToBeDisplayed)
     {
+        //Print current number to be displayed
         TextView textView = (TextView) findViewById(R.id.textdisplay);
         textView.setText(textToBeDisplayed);
         textView.setVisibility(View.VISIBLE);
+
+        //Print current operator to be displayed
+        TextView operatorView = (TextView) findViewById(R.id.operatordisplay);
+        operatorView.setText(operatorToBeDisplayed);
+        operatorView.setVisibility(View.VISIBLE);
     }
 
     public void onClearDisplay(View v)

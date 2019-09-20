@@ -1,5 +1,6 @@
 package com.example.calculator.presenter;
 
+import com.example.calculator.model.TextDisplay;
 import com.example.calculator.view.CalculatorView;
 import com.example.calculator.model.Display;
 
@@ -34,16 +35,32 @@ public class CalculatorPresenter implements Presenter
     {
         //Perform tasks when buttons are clicked
         //Bridge between Model logic and View button setter
-        String textToDisplay;
+       TextDisplay display = new TextDisplay();
+       display =   model.selectButton(buttonTag);
 
-        textToDisplay = model.selectButton(buttonTag); //String
+        //textToDisplay       = model.selectButton(buttonTag).CurrentDisplay; //String
 
+        //display.CurrentDisplay   = model.selectButton(buttonTag).CurrentOperation; //String
 
-        if(buttonTag == "clearButton")
+        switch(display.CurrentOperation)
         {
-            onClearClicked();
+            case "divisionSign":
+                display.CurrentOperation = "/";
+                break;
+            case "multiplicationSign":
+                display.CurrentOperation= "x";
+                break;
+            case "plusSign":
+                display.CurrentOperation = "+";
+                break;
+            case "subtractSign":
+                display.CurrentOperation = "-";
+                break;
+            default:
+                display.CurrentOperation = "";
+                break;
         }
-        view.showDisplay(textToDisplay);
+        view.showDisplay(display.CurrentDisplay, display.CurrentOperation);
 
 
 
