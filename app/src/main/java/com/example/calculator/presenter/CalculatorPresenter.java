@@ -31,6 +31,7 @@ public class CalculatorPresenter implements Presenter
 
     }
 
+
     public void onButtonClicked(String buttonTag)
     {
         //Perform tasks when buttons are clicked
@@ -61,8 +62,6 @@ public class CalculatorPresenter implements Presenter
                 break;
         }
         view.showDisplay(display.CurrentDisplay, display.CurrentOperation);
-
-
 
     }
 

@@ -53,6 +53,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         presenter.onButtonClicked(button_name);
     }
 
+    //This method prints the processed text from the model into the textviews
     public void showDisplay(String textToBeDisplayed, String operatorToBeDisplayed)
     {
         //Print current number to be displayed

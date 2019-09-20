@@ -3,6 +3,7 @@ import java.math.*;
 
 public class Display
 {
+    //Flags and Trackers
     private double CurrentNumber;
     private double PreviousNumber;
     private double Result;
@@ -39,7 +40,7 @@ public class Display
     
     TextDisplay textDisplay = new TextDisplay();
 
-
+    //Constructor
     public Display()
     {
         CurrentNumber       = 0;
@@ -50,7 +51,7 @@ public class Display
         OperatorFlag        = Boolean.FALSE;
     }
 
-
+    //Performs arithmetic operations
     public String performOperation(double firstNumber, double secondNumber, String Operation)
     {
         switch (Operation)
@@ -87,10 +88,13 @@ public class Display
 
     }
 
+    //Switch that receives the tag attached to the button received from the model and performs a specific action related to it.
+    //Returns an object of type TextDisplay
     public TextDisplay selectButton(String buttonTag)
     {
         switch (buttonTag)
         {
+            //If Button was a number
             case NINE:
                 CurrentDisplay = CurrentDisplay.concat("9");
                 CurrentNumber = Double.parseDouble(CurrentDisplay);
@@ -143,6 +147,7 @@ public class Display
 
                 break;
 
+            //If button was a helper ("-" ,  "." , "Del")
             case NEGATIVESIGN:
                 //It will only add a negative sign if CurrentDisplay is empty since we want it to be added at the beginning
                 if(CurrentDisplay.isEmpty())
@@ -190,7 +195,7 @@ public class Display
                 }
                 break;
 
-
+            //Arithmetic Operators
             case ADDITION:
 
                 if(OperatorFlag == Boolean.FALSE)
@@ -272,7 +277,7 @@ public class Display
 
 
 
-
+            //Equal Sign Case
             case EQUALSIGN:
                 CurrentDisplay = performOperation(PreviousNumber, CurrentNumber, CurrentOperation);
                 CurrentOperation = "";
@@ -281,18 +286,20 @@ public class Display
 
                 //If last two characters are '.0' then number is integer so it chops last two characters
                 CurrentDisplay = checkForIntegerNumber(CurrentDisplay);
-
                 break;
 
                 default:
                     break;
         }
 
+        //Set textDisplay object variables to be returned to the presenter
         textDisplay.CurrentDisplay      = this.CurrentDisplay;
         textDisplay.CurrentOperation    = this.CurrentOperation;
 
         return textDisplay;
     }
+
+    //Clear all values to default
     public void clear()
     {
         CurrentDisplay      = "";
@@ -305,6 +312,7 @@ public class Display
         OperatorFlag        = Boolean.FALSE;
     }
 
+    //Checks if the negative sign button is pressed
    public void checkForNegativeSign()
     {
         if(NegativeSignFlag == Boolean.TRUE)
@@ -314,6 +322,7 @@ public class Display
         }
     }
 
+    //Checks if the number is an integer
     public String checkForIntegerNumber(String NumberToCheck)
     {
         //If last two characters are '.0' then number is integer so it chops last two characters
