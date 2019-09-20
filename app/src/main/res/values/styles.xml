@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="CalculatorTheme" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/DarkBlue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:layout_width">95dp</item>
+        <item name="android:layout_height">85dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:background">@mipmap/button_foreground</item>
+    </style>
+
+    <style name="CalculatorThemeOperators" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/DarkBlue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:layout_width">95dp</item>
+        <item name="android:layout_height">85dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:background">@mipmap/button_operators_foreground</item>
+    </style>
+
+    <style name="CalculatorThemeClear" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">95dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:layout_height">85dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:background">@mipmap/button_clear_foreground</item>
+    </style>
+
+
+
+
+
+
+</resources>
